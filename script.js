@@ -37,25 +37,23 @@ function addItemToShoppingList() {
 }
 
 function setDeleteButtonEvent(id) {
-    let deleteButton = document.getElementById("button+id");
+    let deleteButton = document.getElementById("button"+id);
     deleteButton.addEventListener("click", () => {
         removeListItem(id);
-
     });
 }
 
 function createListItemHtml(itemName, itemAmount, id) {
-    return <li id="item${id}">
+    return `<li id="item${id}">
                 ${itemName} - ${itemAmount}
                 <button id="button${id}" type="button">Delete Item</button>
-            </li>;
+            </li>`;
 }
 
 function removeListItem(id) {
-    let listItem = document.getElementById("item"+id);
-    listItem.parentNode.removeChild(listItem)
+    let listItem = document.getElementById("item" + id);
+    listItem.parentNode.removeChild(listItem);
 }
-
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
